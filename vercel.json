@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "builds": [
+      {
+          "src": "*.py",
+      }
+  ],
+  "routes": [
+      {
+          "src": "(.*)",
+          "dest": "bot.py"
+      }
+  ]
+}
