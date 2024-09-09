@@ -1,10 +1,8 @@
 import os
 import discord
-import dotenv
 import datetime
 import re
 
-dotenv.load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 CHAN_MAX_LEN = 32
 
