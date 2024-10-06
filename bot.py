@@ -61,4 +61,13 @@ async def on_scheduled_event_user_remove(event, user):
 async def on_scheduled_event_delete(event):
 	await get_channel_in_category(get_category(event.guild, "Concerts"), to_channel_name(event.name)).delete()
 
+
+@client.event
+async def on_scheduled_event_update(before, after):
+	if after.status == discord.EventStatus.completed:
+		await get_channel_in_category(get_category(before.guild, "Concerts"), to_channel_name(before.name)).delete()
+		return
+	if before.name != after.name:
+		await get_channel_in_category(get_category(before.guild, "Concerts"), to_channel_name(before.name)).edit(name=to_channel_name(after.name))
+
 client.run(TOKEN)
